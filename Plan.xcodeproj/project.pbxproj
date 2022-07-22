@@ -17,7 +17,7 @@
 		2561478728888C41000C1DE7 /* PlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561478628888C41000C1DE7 /* PlanTests.swift */; };
 		2561479128888C41000C1DE7 /* PlanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561479028888C41000C1DE7 /* PlanUITests.swift */; };
 		2561479328888C41000C1DE7 /* PlanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561479228888C41000C1DE7 /* PlanUITestsLaunchTests.swift */; };
-		257696A22888AE4000CD0E76 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257696A12888AE4000CD0E76 /* CustomCell.swift */; };
+		258C497E288A381A00236388 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C497D288A381A00236388 /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		2561478C28888C41000C1DE7 /* PlanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2561479028888C41000C1DE7 /* PlanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanUITests.swift; sourceTree = "<group>"; };
 		2561479228888C41000C1DE7 /* PlanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		257696A12888AE4000CD0E76 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		258C497D288A381A00236388 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 				2561476C28888C3E000C1DE7 /* AppDelegate.swift */,
 				2561476E28888C3E000C1DE7 /* SceneDelegate.swift */,
 				2561477028888C3E000C1DE7 /* ViewController.swift */,
-				257696A12888AE4000CD0E76 /* CustomCell.swift */,
+				258C497D288A381A00236388 /* CustomCell.swift */,
 				2561477228888C3E000C1DE7 /* Main.storyboard */,
 				2561477828888C41000C1DE7 /* Assets.xcassets */,
 				2561477A28888C41000C1DE7 /* LaunchScreen.storyboard */,
@@ -266,7 +266,7 @@
 			files = (
 				2561477728888C3E000C1DE7 /* Plan.xcdatamodeld in Sources */,
 				2561477128888C3E000C1DE7 /* ViewController.swift in Sources */,
-				257696A22888AE4000CD0E76 /* CustomCell.swift in Sources */,
+				258C497E288A381A00236388 /* CustomCell.swift in Sources */,
 				2561476D28888C3E000C1DE7 /* AppDelegate.swift in Sources */,
 				2561476F28888C3E000C1DE7 /* SceneDelegate.swift in Sources */,
 			);
