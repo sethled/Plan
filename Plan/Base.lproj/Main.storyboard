@@ -28,29 +28,29 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-M8-lhQ">
-                                                    <rect key="frame" x="5" y="5" width="404" height="78"/>
+                                                    <rect key="frame" x="5" y="5" width="409" height="78"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" text="I like to move it move it" translatesAutoresizingMaskIntoConstraints="NO" id="8WZ-68-C31">
-                                                            <rect key="frame" x="19" y="0.0" width="385" height="78"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" text="prototype cell. placeholder text." translatesAutoresizingMaskIntoConstraints="NO" id="8WZ-68-C31">
+                                                            <rect key="frame" x="19" y="0.0" width="390" height="78"/>
                                                             <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="38"/>
+                                                            <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="30"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="8WZ-68-C31" secondAttribute="trailing" id="Cc1-rY-omJ"/>
-                                                        <constraint firstAttribute="bottom" secondItem="8WZ-68-C31" secondAttribute="bottom" id="mdo-pn-ipZ"/>
-                                                        <constraint firstItem="8WZ-68-C31" firstAttribute="top" secondItem="6wI-M8-lhQ" secondAttribute="top" id="sb5-mu-J5Z"/>
-                                                        <constraint firstItem="8WZ-68-C31" firstAttribute="leading" secondItem="6wI-M8-lhQ" secondAttribute="leading" constant="19" id="xi6-xq-8vQ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="8WZ-68-C31" secondAttribute="bottom" id="4Vq-fB-hKj"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8WZ-68-C31" secondAttribute="trailing" id="Y9C-Kn-IVm"/>
+                                                        <constraint firstItem="8WZ-68-C31" firstAttribute="leading" secondItem="6wI-M8-lhQ" secondAttribute="leading" constant="19" id="biq-eJ-Fh6"/>
+                                                        <constraint firstItem="8WZ-68-C31" firstAttribute="top" secondItem="6wI-M8-lhQ" secondAttribute="top" id="dJN-zv-fSD"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="6wI-M8-lhQ" firstAttribute="leading" secondItem="NtJ-kp-CH5" secondAttribute="leading" constant="5" id="JfF-Xf-LXm"/>
-                                                <constraint firstItem="6wI-M8-lhQ" firstAttribute="top" secondItem="NtJ-kp-CH5" secondAttribute="top" constant="5" id="NfM-az-SOF"/>
-                                                <constraint firstAttribute="trailing" secondItem="6wI-M8-lhQ" secondAttribute="trailing" constant="5" id="hoG-wJ-2dL"/>
-                                                <constraint firstAttribute="bottom" secondItem="6wI-M8-lhQ" secondAttribute="bottom" constant="5" id="rb5-v0-MHk"/>
+                                                <constraint firstAttribute="trailing" secondItem="6wI-M8-lhQ" secondAttribute="trailing" id="LYg-F0-vDa"/>
+                                                <constraint firstItem="6wI-M8-lhQ" firstAttribute="top" secondItem="NtJ-kp-CH5" secondAttribute="top" constant="5" id="cpO-eU-Usq"/>
+                                                <constraint firstItem="6wI-M8-lhQ" firstAttribute="leading" secondItem="NtJ-kp-CH5" secondAttribute="leading" constant="5" id="etf-2t-vae"/>
+                                                <constraint firstAttribute="bottom" secondItem="6wI-M8-lhQ" secondAttribute="bottom" constant="5" id="lAe-sb-bbv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

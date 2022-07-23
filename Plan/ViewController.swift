@@ -11,21 +11,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     @IBOutlet weak var tableView: UITableView! // Table View IBOutlet
-    var tempData = ["Go to lunch", "Go to church", "Do some other thing which requires much text to describe."]
+    var dataArray:[String] = [""]
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "theCell")
+        //tableView.delegate = self
+        tableView.dataSource = self
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
+        
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tempData.count
+        dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let myCell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomCell
-        myCell.entryTextView!.text = tempData[indexPath.row]
+        myCell.entryTextView!.text = dataArray[indexPath.row]
         
         // set the closure
         weak var tv = tableView
@@ -40,22 +51,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         myCell.callback2 = {
-            print("Callback2 ran!! holy shit.")
+            self.dataArray.append("")
+            tableView.reloadData()
+            myCell.entryTextView.becomeFirstResponder()
         }
         
         return myCell
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    func dataFromPropertyList(){
+        let path = Bundle.main.path(forResource: "EntryData", ofType: "plist")
+        let dict:AnyObject = NSDictionary(contentsOfFile: path!)!
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "theCell")
-        //tableView.delegate = self
-        tableView.dataSource = self
-        tableView.allowsSelection = false
-        tableView.separatorStyle = .none
+        dataArray = dict.object(forKey: "entriesData") as! Array<String>
         
     }
 

@@ -18,6 +18,7 @@
 		2561479128888C41000C1DE7 /* PlanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561479028888C41000C1DE7 /* PlanUITests.swift */; };
 		2561479328888C41000C1DE7 /* PlanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561479228888C41000C1DE7 /* PlanUITestsLaunchTests.swift */; };
 		258C497E288A381A00236388 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C497D288A381A00236388 /* CustomCell.swift */; };
+		25E58819288B984700032CC1 /* EntryData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25E58818288B984700032CC1 /* EntryData.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		2561479028888C41000C1DE7 /* PlanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanUITests.swift; sourceTree = "<group>"; };
 		2561479228888C41000C1DE7 /* PlanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		258C497D288A381A00236388 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		25E58818288B984700032CC1 /* EntryData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = EntryData.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				2561477828888C41000C1DE7 /* Assets.xcassets */,
 				2561477A28888C41000C1DE7 /* LaunchScreen.storyboard */,
 				2561477D28888C41000C1DE7 /* Info.plist */,
+				25E58818288B984700032CC1 /* EntryData.plist */,
 				2561477528888C3E000C1DE7 /* Plan.xcdatamodeld */,
 			);
 			path = Plan;
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2561477C28888C41000C1DE7 /* LaunchScreen.storyboard in Resources */,
+				25E58819288B984700032CC1 /* EntryData.plist in Resources */,
 				2561477928888C41000C1DE7 /* Assets.xcassets in Resources */,
 				2561477428888C3E000C1DE7 /* Main.storyboard in Resources */,
 			);
@@ -445,6 +449,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VQDWZL5U2G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Plan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -472,6 +477,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VQDWZL5U2G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Plan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

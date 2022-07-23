@@ -29,10 +29,15 @@ class CustomCell: UITableViewCell, UITextViewDelegate {
         callback?(str)
     }
     
-    func textViewShouldReturn(_ textView: UITextView) -> Bool{
-        callback2?()
-        return false;
-    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+      {
+          if(text == "\n")
+          {
+              //entryTextView.endEditing(true)
+              callback2?()
+          }
+          return true
+      }
     
     override func awakeFromNib() {
         super.awakeFromNib()
