@@ -62,6 +62,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            dataArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
+    
     func fetchDataFromPropertyList(){
         let path = Bundle.main.path(forResource: "EntryData", ofType: "plist")
         let dict:AnyObject = NSDictionary(contentsOfFile: path!)!
