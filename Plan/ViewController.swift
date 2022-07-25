@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
+        fetchDataFromPropertyList()
         
     }
     
@@ -40,17 +41,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // set the closure
         weak var tv = tableView
-        myCell.callback = { [weak self] str in
+        myCell.handleNewDataCB = { [weak self] str in
             guard let self = self, let tv = tv else { return }
             // print("called back", str)
             // update our data with the edited string
-            // self.myData[indexPath.row] = str --> modify data/stored data when text is changed
+            self.dataArray[indexPath.row] = str // --> modify data/stored data when text is changed
+            
             // we don't need to do anything else here
             // this will force the table to recalculate row heights
             tv.performBatchUpdates(nil) // CURRENTLY ANIMATED. IF YOU DON'T IMPLEMENT VISIBLE BACKGROUNDS, CONSIDER REMOVING ANIMATION TO REDUCE LOAD ON THE SYSTEM/INCREASE SPEED
         }
         
-        myCell.callback2 = {
+        myCell.newLineCB = {
             self.dataArray.append("")
             tableView.reloadData()
             myCell.entryTextView.becomeFirstResponder()
@@ -60,12 +62,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    func dataFromPropertyList(){
+    func fetchDataFromPropertyList(){
         let path = Bundle.main.path(forResource: "EntryData", ofType: "plist")
         let dict:AnyObject = NSDictionary(contentsOfFile: path!)!
         
-        dataArray = dict.object(forKey: "entriesData") as! Array<String>
+        dataArray = dict.object(forKey: "entriesArray") as! Array<String>
         
+    }
+    
+    func saveDataToPropertyList(){
+        let path = Bundle.main.path(forResource: "EntryData", ofType: "plist")
+
+        let newDataArray = dataArray as! NSMutableArray
+        
+        newDataArray.write(toFile: path!, atomically: true)
     }
 
 }

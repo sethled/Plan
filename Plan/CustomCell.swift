@@ -11,8 +11,8 @@ class CustomCell: UITableViewCell, UITextViewDelegate {
 
     @IBOutlet weak var entryView: UIView!
     @IBOutlet weak var entryTextView: UITextView!
-    var callback: ((String) -> ())?
-    var callback2: (() -> ())?
+    var handleNewDataCB: ((String) -> ())?
+    var newLineCB: (() -> ())?
 
     override func didMoveToSuperview() {
             super.didMoveToSuperview()
@@ -26,7 +26,7 @@ class CustomCell: UITableViewCell, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         let str = entryTextView.text ?? ""
         // tell the controller
-        callback?(str)
+        handleNewDataCB?(str)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
@@ -34,7 +34,7 @@ class CustomCell: UITableViewCell, UITextViewDelegate {
           if(text == "\n")
           {
               //entryTextView.endEditing(true)
-              callback2?()
+              newLineCB?()
           }
           return true
       }
