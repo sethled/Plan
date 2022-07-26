@@ -37,11 +37,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
-        fetchDataFromPropertyList()
+        fetchData()
         
         NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: nil) { (notification) in
             //print("app did enter background")
-            self.saveDataToPropertyList()
+            self.saveData()
         }
         
         //Looks for single or multiple taps.
@@ -138,58 +138,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     // Store the relevant contents of the "EntryData" Plist, inside of our 'dataArray'
-    func fetchDataFromPropertyList(){
-        let path = Bundle.main.path(forResource: "EntryData", ofType: "plist")
-        let dict:AnyObject = NSDictionary(contentsOfFile: path!)!
-        dataArray = dict.object(forKey: "entriesArray") as! Array<String>
-        
+    func fetchData(){
+        let defaults = UserDefaults.standard
+        dataArray = defaults.object(forKey: "dataArray") as? [String] ?? [String]()
     }
-    
-    // Save the contents of 'dataArray' to the EntryData Plist.
-    func saveDataToPropertyList(){
-        /*let path = Bundle.main.path(forResource: "EntryData", ofType: "plist")
-        let tempArray:[String]? = dataArray
-        
-        if let tempArray = tempArray,
-            dataArray = tempArray as? NSArray {
-          // use the NSArray list here
-        }
-        
-        let newDataArray = dataArray as! NSMutableArray
-        
-        newDataArray.write(toFile: path!, atomically: true)*/
-        //let string = try? decoder.decode(String.self, from: data)
-        
-        //PropertyListDecoder().decode(Array<String>.self, from: d)
-        do {
-            var dictionary = try loadPropertyList()
-            dictionary.updateValue(dataArray, forKey: "Root")
-            try savePropertyList(dictionary)
-        } catch {
-            print(error)
-        }
+    func saveData(){
+        let defaults = UserDefaults.standard
+        defaults.set(dataArray, forKey: "dataArray")
         //print("save data called.")
-    }
-
-    var plistURL : URL {
-        let documentDirectoryURL =  try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-        return documentDirectoryURL.appendingPathComponent("dictionary.plist")
-    }
-    
-    func savePropertyList(_ plist: Any) throws
-    {
-        let plistData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
-        try plistData.write(to: plistURL)
-    }
-
-
-    func loadPropertyList() throws -> [String:[String]]
-    {
-        let data = try Data(contentsOf: plistURL)
-        guard let plist = try PropertyListSerialization.propertyList(from: data, format: nil) as? [String:[String]] else {
-            return [:]
-        }
-        return plist
     }
     
 }
