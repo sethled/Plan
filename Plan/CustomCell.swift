@@ -33,7 +33,7 @@ class CustomCell: UITableViewCell, UITextViewDelegate {
       {
           if(text == "\n")
           {
-              //entryTextView.endEditing(true)
+              entryTextView.endEditing(true)
               newLineCB?()
           }
           return true
