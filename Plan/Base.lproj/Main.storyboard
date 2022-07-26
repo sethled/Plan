@@ -66,6 +66,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="+">
                                     <fontDescription key="titleFontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="80"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="newCellBTN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6C2-zJ-DQk"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PLAN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9J-o3-WTY">
                                 <rect key="frame" x="130" y="62" width="154" height="43"/>

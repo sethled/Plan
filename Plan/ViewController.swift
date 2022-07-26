@@ -13,6 +13,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     // Create "dataArray" String Array which stores the text for all entries in the plan.
     var dataArray:[String] = [""]
+    @IBAction func newCellBTN(_ sender: UIButton) {
+        CATransaction.begin()
+        tableView.beginUpdates()
+        tableView.insertRows(at: [IndexPath(row: dataArray.count, section: 0)], with: UITableView.RowAnimation.automatic)
+        self.dataArray.insert("", at: dataArray.count)
+        CATransaction.setCompletionBlock {
+            // Code to be executed upon completion
+            self.tableView.reloadData() // Using reload data after calling delete is an inefficient way to maintain accurrate indexPath.row tracking. Temporary solution. Definitely will cause slowdown.
+        }
+        tableView.endUpdates()
+        CATransaction.commit()
+    }
+    
     
     // View Did Load (commands and functions to run during start up)
     override func viewDidLoad() {
@@ -134,9 +147,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //let string = try? decoder.decode(String.self, from: data)
         
         //PropertyListDecoder().decode(Array<String>.self, from: d)
-        
+        do {
+            var dictionary = try loadPropertyList()
+            dictionary.updateValue(dataArray, forKey: "Root")
+            try savePropertyList(dictionary)
+        } catch {
+            print(error)
+        }
         print("save data called.")
     }
 
+    var plistURL : URL {
+        let documentDirectoryURL =  try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        return documentDirectoryURL.appendingPathComponent("dictionary.plist")
+    }
+    
+    func savePropertyList(_ plist: Any) throws
+    {
+        let plistData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+        try plistData.write(to: plistURL)
+    }
+
+
+    func loadPropertyList() throws -> [String:[String]]
+    {
+        let data = try Data(contentsOf: plistURL)
+        guard let plist = try PropertyListSerialization.propertyList(from: data, format: nil) as? [String:[String]] else {
+            return [:]
+        }
+        return plist
+    }
+    
 }
 
