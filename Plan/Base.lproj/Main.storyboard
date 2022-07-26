@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="81Z-gk-RQy">
-                                <rect key="frame" x="0.0" y="44" width="414" height="750"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="81Z-gk-RQy">
+                                <rect key="frame" x="0.0" y="147" width="414" height="622"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" rowHeight="88" id="JN3-TB-80v" customClass="CustomCell" customModule="Plan" customModuleProvider="target">
@@ -60,14 +60,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yat-SC-5Qr">
+                                <rect key="frame" x="170" y="830" width="74" height="49"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+">
+                                    <fontDescription key="titleFontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="80"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PLAN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9J-o3-WTY">
+                                <rect key="frame" x="130" y="62" width="154" height="43"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="46"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="81Z-gk-RQy" secondAttribute="trailing" id="5qb-aw-lsZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="81Z-gk-RQy" secondAttribute="bottom" id="P8W-qv-OxW"/>
-                            <constraint firstItem="81Z-gk-RQy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VT7-d4-fMW"/>
-                            <constraint firstItem="81Z-gk-RQy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h7x-XF-xbZ"/>
+                            <constraint firstItem="yat-SC-5Qr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6Ce-60-617"/>
+                            <constraint firstItem="81Z-gk-RQy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FlV-jA-2v0"/>
+                            <constraint firstItem="i9J-o3-WTY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="Nw9-uM-hRo"/>
+                            <constraint firstItem="i9J-o3-WTY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="W5b-gM-KIV"/>
+                            <constraint firstItem="81Z-gk-RQy" firstAttribute="top" secondItem="i9J-o3-WTY" secondAttribute="bottom" constant="22" id="axd-yU-48R"/>
+                            <constraint firstItem="yat-SC-5Qr" firstAttribute="top" secondItem="81Z-gk-RQy" secondAttribute="bottom" constant="16" id="jfa-tF-gFo"/>
+                            <constraint firstItem="81Z-gk-RQy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wpx-za-1O0"/>
+                            <constraint firstItem="yat-SC-5Qr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="17" id="zl4-Zq-E12"/>
                         </constraints>
                     </view>
                     <connections>
@@ -76,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
+            <point key="canvasLocation" x="71.014492753623188" y="101.78571428571428"/>
         </scene>
     </scenes>
     <resources>
