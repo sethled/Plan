@@ -44,6 +44,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.saveDataToPropertyList()
         }
         
+        //Looks for single or multiple taps.
+         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     // Table View Function
@@ -67,8 +81,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             guard let self = self, let tv = tv else { return }
             // print("called back", str)
             // update our data with the edited string
-            print("dataArray: ", self.dataArray)
-            print("indexPath.row: ", indexPath.row)
+            //print("dataArray: ", self.dataArray)
+            //print("indexPath.row: ", indexPath.row)
             self.dataArray[indexPath.row] = str // --> modify data/stored data when text is changed
             
             // we don't need to do anything else here
@@ -154,7 +168,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } catch {
             print(error)
         }
-        print("save data called.")
+        //print("save data called.")
     }
 
     var plistURL : URL {

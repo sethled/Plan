@@ -35,7 +35,7 @@
                                                             <color key="backgroundColor" systemColor="labelColor"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="30"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <textInputTraits key="textInputTraits"/>
                                                         </textView>
                                                     </subviews>
                                                     <constraints>
