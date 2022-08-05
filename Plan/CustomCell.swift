@@ -13,6 +13,7 @@ class CustomCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var entryTextView: UITextView!
     var handleNewDataCB: ((String) -> ())?
     var newLineCB: (() -> ())?
+    var complete = false
 
     override func didMoveToSuperview() {
             super.didMoveToSuperview()
@@ -21,7 +22,13 @@ class CustomCell: UITableViewCell, UITextViewDelegate {
             // make sure delegate is set
             entryTextView.delegate = self
             // if these are set in Storyboard this func is not needed
-        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        //contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0))
+    }
     
     func textViewDidChange(_ textView: UITextView) {
         let str = entryTextView.text ?? ""

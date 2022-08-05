@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         // Do any additional setup after loading the view.
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "theCell")
-        //tableView.delegate = self
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
@@ -74,6 +74,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomCell
         myCell.entryTextView!.text = dataArray[indexPath.row]
+        //myCell.entryTextView!.attributedText = NSAttributedString(string: "placeholder attributed string")
+        /*
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: dataArray[indexPath.row])
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: myCell.entryTextView!.selectedRange)
+
+        myCell.entryTextView!.attributedText = attributeString
+        myCell.entryTextView!.font = UIFont(name: "Helvetica Neue", size: 16.0)
+        myCell.entryTextView!.textColor = .white
+        */
         
         // set the closure
         weak var tv = tableView
@@ -111,13 +120,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         return myCell
     }
-    
+
     // Allow for a Table View row to be deleted
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
     // Implements functionality for Table View row deletion.
+    /*
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             
@@ -135,7 +145,68 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             //saveDataToPropertyList()
         }
+    }*/
+    
+    /*
+    // Code for 'leading' swipe actions
+    func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal,
+                                        title: "Complete") { [weak self] (action, view, completionHandler) in
+                                            self?.cellMarkAsComplete()
+                                            completionHandler(true)
+        }
+        action.backgroundColor = .red
+        return UISwipeActionsConfiguration(actions: [action])
+    }*/
+    
+    // Code for trailing swipe actions
+    func tableView(_ tableView: UITableView,
+                       trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        // Complete action
+        let complete = UIContextualAction(style: .normal,
+                                         title: "Complete") { [weak self] (action, view, completionHandler) in
+                                            self?.cellMarkAsComplete(indexPath:indexPath)
+                                            completionHandler(true)
+        }
+        
+        complete.backgroundColor = UIColor.label
+        
+         
+        let delete = UIContextualAction(style: .destructive,
+                                         title: "Delete") { [weak self] (action, view, completionHandler) in
+                                            self?.cellMarkForDeletion(indexPath:indexPath)
+                                            completionHandler(true)
+        }
+        delete.backgroundColor = .systemRed
+
+        let configuration = UISwipeActionsConfiguration(actions: [delete, complete])
+
+        return configuration
     }
+    
+    private func cellMarkAsComplete(indexPath: IndexPath) {
+        print("This cell is marked as complete")
+        let cell = tableView.cellForRow(at: indexPath) as! CustomCell
+        cell.entryTextView!.textColor = .systemGray // .darkGray
+        
+    }
+
+    private func cellMarkForDeletion(indexPath: IndexPath) {
+        //print("This cell is marked for deletion")
+        CATransaction.begin()
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        dataArray.remove(at: indexPath.row)
+        CATransaction.setCompletionBlock {
+            // Code to be executed upon completion
+            self.tableView.reloadData() // Using reload data after calling delete is an inefficient way to maintain accurrate indexPath.row tracking. Temporary solution. Definitely will cause slowdown.
+        }
+        tableView.endUpdates()
+        CATransaction.commit()
+    }
+
     
     // Store the relevant contents of the "EntryData" Plist, inside of our 'dataArray'
     func fetchData(){
@@ -149,4 +220,3 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
 }
-

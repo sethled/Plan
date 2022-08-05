@@ -30,11 +30,11 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-M8-lhQ">
                                                     <rect key="frame" x="5" y="5" width="409" height="78"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" text="prototype cell. placeholder text." translatesAutoresizingMaskIntoConstraints="NO" id="8WZ-68-C31">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" text="prototype cell" translatesAutoresizingMaskIntoConstraints="NO" id="8WZ-68-C31">
                                                             <rect key="frame" x="19" y="0.0" width="390" height="78"/>
                                                             <color key="backgroundColor" systemColor="labelColor"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="30"/>
+                                                            <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textView>
                                                     </subviews>
